@@ -1,0 +1,33 @@
+{
+  "name": "blog",
+  "version": "0.1.0",
+  "private": true,
+  "description": "blog website to dev",
+  "homepage": "https://github.com/ArandasNyan/blog#readme",
+  "bugs": {
+    "url": "https://github.com/ArandasNyan/blog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArandasNyan/blog.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "biome check",
+    "format": "biome format --write"
+  },
+  "dependencies": {
+    "next": "^16.1.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.10",
+    "@tailwindcss/postcss": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  }
+}
