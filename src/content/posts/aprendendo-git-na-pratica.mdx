@@ -1,0 +1,268 @@
+---
+slug: "aprendendo-git-na-pratica"
+title: "Aprendendo Git na Prática: do Básico ao Essencial"
+summary: "Um guia completo para aprender Git do zero, entendendo conceitos, comandos, fluxos de trabalho e boas práticas usadas no dia a dia de desenvolvedores."
+publishedAt: "2023-04-18"
+tags: ["git", "controle-de-versao", "desenvolvimento", "github"]
+---
+
+Git é um sistema de controle de versão distribuído que permite acompanhar mudanças no código,
+colaborar com outros desenvolvedores e manter um histórico confiável de um projeto ao longo do
+tempo.
+
+Aprender Git é essencial para qualquer pessoa que desenvolve software. Ele resolve problemas como
+perda de código, conflitos entre versões, trabalho em equipe e rastreabilidade de mudanças.
+
+Neste guia, você aprenderá Git **do zero**, entendendo não apenas os comandos, mas também **o
+conceito por trás de cada ação**, o que é fundamental para usá-lo com confiança.
+
+## O que é Git e por que ele existe?
+
+Antes do Git, desenvolvedores compartilhavam código manualmente, sobrescrevendo arquivos e perdendo
+histórico. O Git foi criado para:
+
+- Controlar versões de arquivos
+- Permitir trabalho colaborativo
+- Registrar quem mudou o quê e quando
+- Facilitar rollback (voltar versões)
+- Trabalhar offline com segurança
+
+Git **não é GitHub**.  
+Git é a ferramenta. GitHub, GitLab e Bitbucket são plataformas que hospedam repositórios Git.
+
+## Conceitos fundamentais do Git
+
+Antes dos comandos, é importante entender os conceitos básicos:
+
+- **Repositório (repo)**: pasta que contém o projeto e o histórico do Git
+- **Commit**: um registro de alterações no projeto
+- **Branch**: uma linha independente de desenvolvimento
+- **Merge**: união de branches
+- **Working Directory**: arquivos como estão no seu computador
+- **Staging Area**: área intermediária antes do commit
+- **HEAD**: ponteiro para o commit atual
+
+> Entender esses conceitos evita o uso mecânico do Git sem saber o que está acontecendo.
+
+## Instalando e configurando o Git
+
+Após instalar o Git, a primeira configuração é identificar o autor dos commits:
+
+```bash
+git config --global user.name "Seu Nome"
+git config --global user.email "seu@email.com"
+```
+
+Você pode verificar as configurações com:
+
+```bash
+git config --list
+```
+
+## Criando um repositório Git
+
+Existem duas formas principais:
+
+### 1. Iniciar um repositório do zero
+
+```bash
+git init
+```
+
+Isso cria uma pasta oculta `.git`, onde o Git guarda todo o histórico.
+
+### 2. Clonar um repositório existente
+
+```bash
+git clone URL_DO_REPOSITORIO
+```
+
+## Ciclo básico do Git (o fluxo mais importante)
+
+O fluxo mais comum no Git é:
+
+1. Modificar arquivos
+2. Adicionar à staging area
+3. Criar um commit
+
+### Verificando o status
+
+```bash
+git status
+```
+
+### Adicionando arquivos
+
+```bash
+git add arquivo.txt
+git add .
+```
+
+### Criando um commit
+
+```bash
+git commit -m "Mensagem clara sobre a mudança"
+```
+
+> Commits devem ser pequenos, objetivos e frequentes.
+
+## Boas práticas de mensagens de commit
+
+Uma boa mensagem de commit:
+
+* Começa com verbo no imperativo
+* É curta e clara
+* Explica o *porquê*, não só o *o quê*
+
+Exemplos:
+
+* `Adiciona validação de formulário`
+* `Corrige erro de login`
+* `Remove código não utilizado`
+
+## Visualizando histórico e diferenças
+
+### Histórico de commits
+
+```bash
+git log
+git log --oneline
+```
+
+### Diferenças entre arquivos
+
+```bash
+git diff
+```
+
+## Trabalhando com branches
+
+Branches permitem desenvolver funcionalidades sem afetar o código principal.
+
+### Criar uma branch
+
+```bash
+git branch nova-feature
+```
+
+### Trocar de branch
+
+```bash
+git checkout nova-feature
+```
+
+Ou em um comando só:
+
+```bash
+git checkout -b nova-feature
+```
+
+### Listar branches
+
+```bash
+git branch
+```
+
+## Merge: unindo branches
+
+Depois de concluir uma funcionalidade:
+
+```bash
+git checkout main
+git merge nova-feature
+```
+
+Se não houver conflitos, o Git faz o merge automaticamente.
+
+## Conflitos de merge
+
+Conflitos acontecem quando duas alterações afetam a mesma parte do código.
+
+O Git marca os conflitos no arquivo e você deve:
+
+1. Escolher o código correto
+2. Remover as marcações
+3. Criar um novo commit
+
+> Conflitos são normais e fazem parte do trabalho em equipe.
+
+## Repositórios remotos (GitHub, GitLab, etc.)
+
+### Ver repositórios remotos
+
+```bash
+git remote -v
+```
+
+### Enviar código para o remoto
+
+```bash
+git push origin main
+```
+
+### Atualizar código local
+
+```bash
+git pull origin main
+```
+
+## Ignorando arquivos com .gitignore
+
+Arquivos que não devem ser versionados:
+
+* `node_modules`
+* arquivos `.env`
+* builds
+* logs
+
+Exemplo de `.gitignore`:
+
+```txt
+node_modules/
+.env
+dist/
+```
+
+## Desfazendo erros comuns
+
+### Desfazer alterações não commitadas
+
+```bash
+git checkout -- arquivo.txt
+```
+
+### Remover arquivo da staging area
+
+```bash
+git reset arquivo.txt
+```
+
+### Voltar para um commit anterior (com cuidado)
+
+```bash
+git reset --hard HASH_DO_COMMIT
+```
+
+## Git no dia a dia profissional
+
+Fluxos comuns:
+
+* Git Flow
+* Feature Branch
+* Pull Requests
+* Code Review
+
+Boas práticas:
+
+* Commits pequenos
+* Branches organizadas
+* Pull requests claros
+* Nunca trabalhar direto na `main`
+
+## Conclusão
+
+Git não é apenas uma ferramenta de comandos, mas um **sistema de pensamento sobre versionamento**.
+Quanto melhor você entende seus conceitos, mais confiante e produtivo se torna no desenvolvimento.
+
+Dominar Git é um passo fundamental para trabalhar em equipe, contribuir em projetos open source e
+atuar profissionalmente no mercado de tecnologia.

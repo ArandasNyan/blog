@@ -1,0 +1,270 @@
+---
+slug: "padrao-de-branches-em-projetos"
+title: "Padrão de Branches em Projetos: Organização, Escalabilidade e Trabalho em Equipe"
+summary: "Um guia prático para entender e aplicar padrões de branches em projetos de software, garantindo organização, colaboração eficiente e segurança no versionamento."
+publishedAt: "2025-12-20"
+tags: ["git", "branches", "boas-praticas", "versionamento", "desenvolvimento"]
+---
+
+> Trabalhar com Git vai muito além de saber criar commits. 
+
+Em projetos reais, especialmente em equipe, **definir um padrão de branches** é essencial para
+manter o código organizado, reduzir conflitos e garantir entregas mais seguras.
+
+Sem um padrão claro, o repositório rapidamente se torna confuso: branches sem propósito,
+commits diretos na `main`, dificuldades em revisar código e bugs indo para produção.
+
+Neste guia, você aprenderá **como e por que definir padrões de branches**, além dos modelos mais
+utilizados no mercado.
+
+## O que são padrões de branches?
+
+Um padrão de branches é um **conjunto de regras e convenções** que define:
+
+- Quais branches existem no projeto
+- Qual o papel de cada branch
+- Como e quando elas são criadas
+- Como o código flui entre elas
+
+> O objetivo não é burocracia, mas previsibilidade e segurança.
+
+## Por que definir um padrão de branches?
+
+Adotar um padrão traz benefícios claros:
+
+- Organização do repositório
+- Menos conflitos de merge
+- Facilidade em revisar código
+- Histórico mais limpo
+- Maior segurança em produção
+- Onboarding mais rápido de novos devs
+
+Em times, **padrão não é opcional — é necessidade**.
+
+## Branch principal: `main` (ou `master`)
+
+A branch `main` representa o **código estável**, pronto para produção.
+
+Boas práticas:
+
+- Nunca commitar direto na `main`
+- Alterações chegam via merge ou pull request
+- Sempre deve estar funcional
+
+> Pense na `main` como algo que pode ser publicado a qualquer momento.
+
+## Branch de desenvolvimento: `develop`
+
+Em projetos maiores, é comum usar uma branch intermediária:
+
+- `develop` → onde as features são integradas
+- `main` → somente versões estáveis
+
+Fluxo básico:
+
+```txt
+feature → develop → main
+````
+
+Isso cria uma camada extra de segurança antes da produção.
+
+## Feature Branches
+
+As **feature branches** são usadas para desenvolver novas funcionalidades.
+
+Padrão comum de nome:
+
+```txt
+feature/nome-da-feature
+```
+
+Exemplos:
+
+* `feature/login-social`
+* `feature/dashboard-admin`
+* `feature/refatoracao-header`
+
+Boas práticas:
+
+* Uma feature por branch
+* Vida curta
+* Merge via pull request
+* Apagar a branch após o merge
+
+## Bugfix Branches
+
+Usadas para corrigir problemas identificados durante o desenvolvimento.
+
+Padrão:
+
+```txt
+bugfix/descricao-do-bug
+```
+
+Exemplos:
+
+* `bugfix/erro-validacao-email`
+* `bugfix/loop-infinito-home`
+
+Normalmente são criadas a partir da `develop`.
+
+## Hotfix Branches
+
+Hotfixes corrigem **problemas críticos em produção**.
+
+Padrão:
+
+```txt
+hotfix/descricao-do-problema
+```
+
+Exemplo:
+
+* `hotfix/corrige-crash-login`
+
+Fluxo típico:
+
+```txt
+main → hotfix → main → develop
+```
+
+> Hotfixes devem ser rápidos, objetivos e bem revisados.
+
+## Git Flow: o padrão mais conhecido
+
+O **Git Flow** é um modelo clássico que define claramente os papéis das branches.
+
+Principais branches:
+
+* `main` → produção
+* `develop` → desenvolvimento
+* `feature/*` → novas funcionalidades
+* `release/*` → preparação de release
+* `hotfix/*` → correções urgentes
+
+Vantagens:
+
+* Muito organizado
+* Ideal para projetos grandes
+
+Desvantagens:
+
+* Pode ser complexo para projetos pequenos
+
+## Feature Branch Flow (mais simples)
+
+Muito usado hoje em dia, especialmente com CI/CD.
+
+Branches principais:
+
+* `main`
+* `feature/*`
+
+Fluxo:
+
+```txt
+feature → main
+```
+
+Com proteção da `main` via:
+
+* Pull requests
+* Code review
+* Testes automáticos
+
+Vantagens:
+
+* Simples
+* Rápido
+* Fácil de manter
+
+Ideal para startups e projetos ágeis.
+
+## Padrão de nomenclatura: seja consistente
+
+Independentemente do modelo, **padronize os nomes**.
+
+Exemplo recomendado:
+
+```txt
+tipo/descricao-curta
+```
+
+Tipos comuns:
+
+* `feature`
+* `bugfix`
+* `hotfix`
+* `chore`
+* `docs`
+* `refactor`
+
+Exemplo real:
+
+```txt
+refactor/remove-logica-duplicada
+```
+
+## Protegendo branches importantes
+
+Configure no GitHub/GitLab:
+
+* Bloquear push direto na `main`
+* Exigir pull request
+* Exigir aprovação
+* Exigir testes passando
+
+> Automação reforça o padrão e evita erros humanos.
+
+## Branches e Pull Requests
+
+Pull Requests (PRs) são parte fundamental do fluxo:
+
+* Revisão de código
+* Discussão técnica
+* Histórico claro
+* Aprendizado em equipe
+
+Um bom PR:
+
+* Tem descrição clara
+* É pequeno e focado
+* Explica o *porquê* da mudança
+
+## Erros comuns ao trabalhar com branches
+
+Evite:
+
+* Criar branches sem padrão
+* Trabalhar semanas em uma única branch
+* Fazer merge sem revisar
+* Commits diretos na `main`
+* Não apagar branches antigas
+
+Branches devem **nascer, cumprir seu papel e morrer**.
+
+## Branches no dia a dia profissional
+
+No mercado, você verá:
+
+* Git Flow em sistemas grandes
+* Feature Branch Flow em produtos digitais
+* Integração contínua (CI)
+* Deploy contínuo (CD)
+
+Saber se adaptar ao padrão do time é tão importante quanto conhecer o Git.
+
+## Conclusão
+
+Padrões de branches não existem para complicar, mas para **organizar o caos natural do
+desenvolvimento de software**.
+
+Quando bem definidos, eles:
+
+* Facilitam colaboração
+* Reduzem erros
+* Aumentam a confiança no deploy
+* Melhoram a qualidade do código
+
+Mais do que seguir um modelo famoso, o importante é **ter um padrão claro, simples e bem
+comunicado** para todo o time.
