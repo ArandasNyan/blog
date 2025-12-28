@@ -53,5 +53,3 @@ export default function About() {
     </main>
   );
 }
-
-// be right back
