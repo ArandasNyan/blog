@@ -1,3 +1,4 @@
+
 /**
  * Componente para exibir o conteúdo do post com estilos Tailwind Typography
  */
@@ -8,3 +9,4 @@ export function PostContent({ children }) {
     </article>
   );
 }
+

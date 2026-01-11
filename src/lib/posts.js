@@ -23,7 +23,8 @@ export function getPosts() {
         title: data.title || "Post sem título",
         summary: data.summary || "",
         publishedAt: data.publishedAt || "",
-        tags: data.tags || [],
+        tags: data.tags || "",
+        readingTime: data.readingTime || ""
       };
     })
     .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));

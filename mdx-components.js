@@ -3,12 +3,12 @@ import Image from "next/image";
 const components = {
   // Títulos com Tailwind
   h1: ({ children }) => (
-    <h1 className="mt-8 mb-4 text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">
+    <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-zinc-900 dark:text-zinc-100 mb-6">
       {children}
     </h1>
   ),
   h2: ({ children }) => (
-    <h2 className="mt-10 mb-4 border-b border-neutral-200 pb-1 text-3xl font-semibold tracking-tight text-neutral-800 dark:text-neutral-200 dark:border-neutral-800">
+    <h2 className="mt-10 mb-4 text-3xl font-semibold tracking-tight text-neutral-800 dark:text-neutral-200 dark:border-neutral-800">
       {children}
     </h2>
   ),
@@ -23,7 +23,7 @@ const components = {
     </h4>
   ),
   p: ({ children }) => (
-    <p className="leading-7 not-first:mt-6 text-neutral-700 dark:text-neutral-400">
+    <p className="leading-7 not-first:mt-6 text-neutral-600 dark:text-neutral-400">
       {children}
     </p>
   ),
@@ -31,7 +31,7 @@ const components = {
     <li className="text-neutral-800 dark:text-neutral-400">{children}</li>
   ),
   strong: ({ children }) => (
-    <strong className="font-bold text-neutral-800 dark:text-neutral-200">
+    <strong className="font-bold text-neutral-700 dark:text-neutral-300">
       {children}
     </strong>
   ),
@@ -47,8 +47,18 @@ const components = {
       alt={props.alt || "Blog image"}
     />
   ),
+  blockquote: ({children}) =>  (
+    <blockquote className="px-6 pr-4 border-l-4 border-indigo-400 italic text-neutral-700 my-8 py-0.5 bg-neutral-300/50 dark:bg-neutral-800/50 rounded-r-lg">
+      {children}
+    </blockquote>
+  ),
+  pre: ({ children }) => (
+    <pre className="bg-neutral-800">
+      <code>{children}</code>
+    </pre>
+  ),
   // Exemplo de componente customizado que você pode usar no MDX
-  Callout: ({ children }) => (
+  callout: ({ children }) => (
     <div className="my-6 flex items-start rounded-md border border-l-4 border-l-blue-500 bg-blue-50 p-4 dark:bg-neutral-900">
       <div className="text-blue-700 dark:text-blue-400">{children}</div>
     </div>

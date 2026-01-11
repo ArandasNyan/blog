@@ -28,6 +28,7 @@ export default async function PostPage({ params }) {
           title={frontmatter?.title}
           publishedAt={frontmatter?.publishedAt}
           tags={frontmatter?.tags}
+          readingTime={frontmatter?.readingTime}
         />
         <PostContent>
           <Post />

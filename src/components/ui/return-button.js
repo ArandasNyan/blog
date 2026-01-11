@@ -21,7 +21,7 @@ export function ReturnButton() {
       <button
         type="button"
         onClick={handleBack}
-        className="flex gap-2 text-lg text-neutral-500 hover:text-neutral-300 hover:font-medium"
+        className="flex gap-2 text-lg text-neutral-500 hover:text-neutral-300 hover:font-medium transition-all transition-discrete"
       >
         <ArrowLeft />
         Voltar

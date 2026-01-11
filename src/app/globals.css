@@ -20,3 +20,29 @@
 @theme {
   --font-inter: "Inter", sans-serif;
 }
+
+@custom-variant prose-inline-code {
+  &.prose :where(:not(pre)>code):not(:where([class~="not-prose"] *)) {
+    @slot;
+  }
+}
+
+@layer components {
+  /* Remove crases (pseudo-elements) que o Typography adiciona somente para inline code */
+  article.prose :where(:not(pre)>code)::before,
+  article.prose :where(:not(pre)>code)::after {
+    content: none !important;
+  }
+
+  /* Estilos do inline code (aplica apenas em :not(pre) > code) */
+  article.prose :where(:not(pre)>code) {
+    @apply rounded bg-neutral-200 px-2 py-1 font-mono font-normal text-neutral-800;
+    font-size: var(--text-base) !important;
+    font-weight: var(--font-weight-normal) !important;
+  }
+
+  /* Versão dark (escopo correto usando .dark no documento) */
+  .dark article.prose :where(:not(pre)>code) {
+    @apply bg-neutral-800 text-neutral-200;
+  }
+}

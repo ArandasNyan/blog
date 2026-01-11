@@ -8,14 +8,12 @@ export function PostTags({ tags }) {
 
   return (
     <div className="flex flex-wrap gap-2">
-      {tags.map((tag) => (
-        <span
-          key={tag}
-          className="text-xs px-2 py-1 bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded"
-        >
-          {tag}
-        </span>
-      ))}
+      <span
+        key={tags}
+        className="text-sm uppercase text-indigo-600 dark:text-indigo-400 rounded"
+      >
+        {tags}
+      </span>
     </div>
   );
 }
@@ -40,8 +38,9 @@ export function PostDate({ date, className = "" }) {
  */
 export function PostMeta({ publishedAt, tags }) {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-start gap-2 font-mono mb-4">
       <PostDate date={publishedAt} />
+      <div className="size-1 bg-neutral-300 dark:bg-neutral-600 rounded-full"></div>
       <PostTags tags={tags} />
     </div>
   );
